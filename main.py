@@ -81,7 +81,7 @@ def home():
 
 @app.route('/<short_url>')
 def redirect_short_url(short_url):
-    decoded = toBase10(short_url)
+    decoded = str(toBase10(short_url))
     url = host  # fallback if no URL is found
     with sqlite3.connect('urls.db') as conn:
         cursor = conn.cursor()
